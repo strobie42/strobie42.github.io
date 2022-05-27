@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Rotating Injection Sites</title>
+<meta name="viewport" content="width=device-width">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="manifest" href="manifest.json">
+<link rel="shortcut icon" sizes="192x192" href="Injection192.png">
+<style type="text/css">
+body, input, button {
+  line-height: 2.2vw;
+  font-size: 2.0vw;
+  font-family: sans-serif;
+}
+.dial {			/* container for each side */
+  width: 50%;
+  height: 46vw;
+  position: relative;
+}
+.lp, button {		/* container to position label */
+  display: inline-block;
+  position: absolute;
+}
+.l2, .lr, .current {	/* 2 line label centred on top left of container */
+  position: relative;
+  left: -50%;
+  margin-top: -3vw;
+  text-align: center;
+  padding: 1vw;
+  border-radius: 2.4vw;
+}
+.compass {		/* for SVG compass roses */
+  width: 36vw;
+  height: 36vw;
+  margin-left: 6.5vw;
+  margin-top: 5.2vw;
+}
+.lr {			/* centre labels for each side */
+  background-color: white;
+  font-weight: bold;
+}
+.upLabel {
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+  font-size: 2.6vw;
+  margin-top: -2vw;
+}
+button {
+  margin: -1vw;
+  padding: 1vw;
+}
+.current {
+  color: white;
+  background-color: red;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+  <div style="display:flex;margin-top:2vw">
+   <div class="dial">
+    <img src="compass.svg" class="compass" />
+    <div class="lp" style="left: 24.5vw; top: 23.0vw;">
+      <div class="lr">Left<br />Side</div></div>
+    <div class="lp" style="left: 24.5vw; top: 43.0vw">
+      <div class="l2">Sun<br />Lunch</div></div>
+    <div class="lp" style="left: 24.5vw; top:  3.0vw">
+      <div class="l2">Sun<br />Night</div></div>
+    <div class="lp" style="left:  5.0vw; top: 27.5vw">
+      <div class="l2">Mon<br />Lunch</div></div>
+    <div class="lp" style="left: 44.0vw; top: 18.5vw">
+      <div class="l2">Mon<br />Night</div></div>
+    <div class="lp" style="left: 15.8vw; top:  5.0vw">
+      <div class="l2">Tue<br />Lunch</div></div>
+    <div class="lp" style="left: 33.2vw; top: 41.0vw">
+      <div class="l2">Tue<br />Night</div></div>
+    <div class="lp" style="left: 40.1vw; top: 10.5vw">
+      <div class="l2">Wed<br />Lunch</div></div>
+    <div class="lp" style="left:  8.9vw; top: 35.5vw">
+      <div class="l2">Wed<br />Night</div></div>
+    <div class="lp" style="left: 40.1vw; top: 35.5vw">
+      <div class="l2">Thu<br />Lunch</div></div>
+    <div class="lp" style="left:  8.9vw; top: 10.5vw">
+      <div class="l2">Thu<br />Night</div></div>
+    <div class="lp" style="left: 15.8vw; top: 41.0vw">
+      <div class="l2">Fri<br />Lunch</div></div>
+    <div class="lp" style="left: 33.2vw; top:  5.0vw">
+      <div class="l2">Fri<br />Night</div></div>
+    <div class="lp" style="left:  5.0vw; top: 18.5vw">
+      <div class="l2">Sat<br />Lunch</div></div>
+    <div class="lp" style="left: 44.0vw; top: 27.5vw">
+      <div class="l2">Sat<br />Night</div></div>
+    <button onclick="showSite(-1)" style="right:1em">Prev</button>
+   </div>
+   <div class="dial">
+    <img src="compass.svg" class="compass" />
+    <div class="lp" style="left: 24.5vw; top: 23.0vw;">
+      <div class="lr">Right<br />Side</div></div>
+    <div class="lp" style="left: 24.5vw; top: 43.0vw">
+      <div class="l2">Sun<br />Brkfst</div></div>
+    <div class="lp" style="left: 24.5vw; top:  3.0vw">
+      <div class="l2">Sun<br />Dinner</div></div>
+    <div class="lp" style="left:  5.0vw; top: 27.5vw">
+      <div class="l2">Mon<br />Brkfst</div></div>
+    <div class="lp" style="left: 44.0vw; top: 18.5vw">
+      <div class="l2">Mon<br />Dinner</div></div>
+    <div class="lp" style="left: 15.8vw; top:  5.0vw">
+      <div class="l2">Tue<br />Brkfst</div></div>
+    <div class="lp" style="left: 33.2vw; top: 41.0vw">
+      <div class="l2">Tue<br />Dinner</div></div>
+    <div class="lp" style="left: 40.1vw; top: 10.5vw">
+      <div class="l2">Wed<br />Brkfst</div></div>
+    <div class="lp" style="left:  8.9vw; top: 35.5vw">
+      <div class="l2">Wed<br />Dinner</div></div>
+    <div class="lp" style="left: 40.1vw; top: 35.5vw">
+      <div class="l2">Thu<br />Brkfst</div></div>
+    <div class="lp" style="left:  8.9vw; top: 10.5vw">
+      <div class="l2">Thu<br />Dinner</div></div>
+    <div class="lp" style="left: 15.8vw; top: 41.0vw">
+      <div class="l2">Fri<br />Brkfst</div></div>
+    <div class="lp" style="left: 33.2vw; top:  5.0vw">
+      <div class="l2">Fri<br />Dinner</div></div>
+    <div class="lp" style="left:  5.0vw; top: 18.5vw">
+      <div class="l2">Sat<br />Brkfst</div></div>
+    <div class="lp" style="left: 44.0vw; top: 27.5vw">
+      <div class="l2">Sat<br />Dinner</div></div>
+    <button onclick="showSite(1)" style="left:1em">Next</button>
+   </div>
+  </div>
+  <div class="upLabel">â†“ Up â†“</div>
+<script type="application/javascript">
+
+  var elements = document.getElementsByClassName("l2");
+  // copy element references, as returned collection gets dynamically updated
+  var sites = [];
+  for (/*let*/ i = 0; i < elements.length; i++) {
+    sites.push(elements[i]);
+  }
+
+  function segment(day, hour) {
+    // hard-coding (for now) these time periods:
+    // 10:00pm - 03:59am : night
+    // 04:00am - 10:59am : breakfast
+    // 11:00am - 03:59pm : lunch
+    // 04:00pm - 09:59pm : dinner
+    if (hour > 21) return day * 4 + 3;
+    if (hour > 15) return day * 4 + 2;
+    if (hour > 10) return day * 4 + 1;
+    if (hour >  3) return day * 4;
+    return (day * 4 + 27) % 28;		// previous night
+  }
+
+  /*let*/ d = new Date();
+  /*let*/ current = segment(d.getDay(), d.getHours());
+
+  function mapLabel(curr) {
+    // determine label position (side and index)
+    return (1 - (curr & 1)) * 14 + (curr >> 1);
+  }
+
+  function showSite(inc) {
+    if (inc != 0) {
+      sites[mapLabel(current)].className = "l2"; // remove old highlight
+      current = (current + inc + 28) % 28;
+    }
+    sites[mapLabel(current)].className = "current";
+  }
+
+  showSite(0);
+
+</script>
+</body>
+</html>
