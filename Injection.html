@@ -15,7 +15,6 @@ body, input, button {
 }
 .dial {			/* container for each side */
   width: 50%;
-  height: 46vw;
   position: relative;
 }
 .lp, button {		/* container to position label */
@@ -33,8 +32,9 @@ body, input, button {
 .compass {		/* for SVG compass roses */
   width: 36vw;
   height: 36vw;
-  margin-left: 6.5vw;
-  margin-top: 5.2vw;
+  padding-top: 9.2vw;
+  padding-left: 6.5vw;
+  padding-bottom: 4vw;
 }
 .lr {			/* centre labels for each side */
   background-color: white;
@@ -45,88 +45,102 @@ body, input, button {
   width: 100%;
   font-weight: bold;
   font-size: 2.6vw;
-  margin-top: -2vw;
+  padding-bottom: 2vw;
 }
 button {
-  margin: -1vw;
   padding: 1vw;
+  margin: 0 1.5vw;
+  z-index: 1;
 }
 .current {
   color: white;
   background-color: red;
   font-weight: bold;
 }
+body {			/* centre body in viewport */
+  position: relative;
+  margin: 0;
+  left: 50vw;
+  top: 50vh; 
+  transform:translate(-50%,-50%)
+}
+html, body {		/* Lose extraneous horizontal scroll bar in Firefox */
+    max-width: 100%;
+    overflow-x: hidden;
+}
 </style>
 </head>
-<body style="padding-top:2vw">    <!-- rough vertical centering for 16:9 screen -->
-  <div style="display:flex;margin-top:2vw">
-   <div class="dial">
-    <img src="compass.svg" class="compass" />
-    <div class="lp" style="left: 24.5vw; top: 23.0vw;">
-      <div class="lr">Left<br />Side</div></div>
-    <div class="lp" style="left: 24.5vw; top: 43.0vw">
-      <div class="l2">Sun<br />Lunch</div></div>
-    <div class="lp" style="left: 24.5vw; top:  3.0vw">
-      <div class="l2">Sun<br />Night</div></div>
-    <div class="lp" style="left:  5.0vw; top: 27.5vw">
-      <div class="l2">Mon<br />Lunch</div></div>
-    <div class="lp" style="left: 44.0vw; top: 18.5vw">
-      <div class="l2">Mon<br />Night</div></div>
-    <div class="lp" style="left: 15.8vw; top:  5.0vw">
-      <div class="l2">Tue<br />Lunch</div></div>
-    <div class="lp" style="left: 33.2vw; top: 41.0vw">
-      <div class="l2">Tue<br />Night</div></div>
-    <div class="lp" style="left: 40.1vw; top: 10.5vw">
-      <div class="l2">Wed<br />Lunch</div></div>
-    <div class="lp" style="left:  8.9vw; top: 35.5vw">
-      <div class="l2">Wed<br />Night</div></div>
-    <div class="lp" style="left: 40.1vw; top: 35.5vw">
-      <div class="l2">Thu<br />Lunch</div></div>
-    <div class="lp" style="left:  8.9vw; top: 10.5vw">
-      <div class="l2">Thu<br />Night</div></div>
-    <div class="lp" style="left: 15.8vw; top: 41.0vw">
-      <div class="l2">Fri<br />Lunch</div></div>
-    <div class="lp" style="left: 33.2vw; top:  5.0vw">
-      <div class="l2">Fri<br />Night</div></div>
-    <div class="lp" style="left:  5.0vw; top: 18.5vw">
-      <div class="l2">Sat<br />Lunch</div></div>
-    <div class="lp" style="left: 44.0vw; top: 27.5vw">
-      <div class="l2">Sat<br />Night</div></div>
-    <button onclick="showSite(-1)" style="right:1em">Prev</button>
+<body>
+  <div style="display:flex">
+   <div>
+    <button onclick="showSite(-1)" style="right:50%">Prev</button>
+    <button onclick="showSite(1)" style="left:50%">Next</button>
    </div>
    <div class="dial">
     <img src="compass.svg" class="compass" />
-    <div class="lp" style="left: 24.5vw; top: 23.0vw;">
+    <div class="lp" style="left: 24.5vw; top: 27.0vw;">
+      <div class="lr">Left<br />Side</div></div>
+    <div class="lp" style="left: 24.5vw; top: 47.0vw">
+      <div class="l2">Sun<br />Lunch</div></div>
+    <div class="lp" style="left: 24.5vw; top:  7.0vw">
+      <div class="l2">Sun<br />Night</div></div>
+    <div class="lp" style="left:  5.0vw; top: 31.5vw">
+      <div class="l2">Mon<br />Lunch</div></div>
+    <div class="lp" style="left: 44.0vw; top: 22.5vw">
+      <div class="l2">Mon<br />Night</div></div>
+    <div class="lp" style="left: 15.8vw; top:  9.0vw">
+      <div class="l2">Tue<br />Lunch</div></div>
+    <div class="lp" style="left: 33.2vw; top: 45.0vw">
+      <div class="l2">Tue<br />Night</div></div>
+    <div class="lp" style="left: 40.1vw; top: 14.5vw">
+      <div class="l2">Wed<br />Lunch</div></div>
+    <div class="lp" style="left:  8.9vw; top: 39.5vw">
+      <div class="l2">Wed<br />Night</div></div>
+    <div class="lp" style="left: 40.1vw; top: 39.5vw">
+      <div class="l2">Thu<br />Lunch</div></div>
+    <div class="lp" style="left:  8.9vw; top: 14.5vw">
+      <div class="l2">Thu<br />Night</div></div>
+    <div class="lp" style="left: 15.8vw; top: 45.0vw">
+      <div class="l2">Fri<br />Lunch</div></div>
+    <div class="lp" style="left: 33.2vw; top:  9.0vw">
+      <div class="l2">Fri<br />Night</div></div>
+    <div class="lp" style="left:  5.0vw; top: 22.5vw">
+      <div class="l2">Sat<br />Lunch</div></div>
+    <div class="lp" style="left: 44.0vw; top: 31.5vw">
+      <div class="l2">Sat<br />Night</div></div>
+   </div>
+   <div class="dial">
+    <img src="compass.svg" class="compass" />
+    <div class="lp" style="left: 24.5vw; top: 27.0vw;">
       <div class="lr">Right<br />Side</div></div>
-    <div class="lp" style="left: 24.5vw; top: 43.0vw">
+    <div class="lp" style="left: 24.5vw; top: 47.0vw">
       <div class="l2">Sun<br />Brkfst</div></div>
-    <div class="lp" style="left: 24.5vw; top:  3.0vw">
+    <div class="lp" style="left: 24.5vw; top:  7.0vw">
       <div class="l2">Sun<br />Dinner</div></div>
-    <div class="lp" style="left:  5.0vw; top: 27.5vw">
+    <div class="lp" style="left:  5.0vw; top: 31.5vw">
       <div class="l2">Mon<br />Brkfst</div></div>
-    <div class="lp" style="left: 44.0vw; top: 18.5vw">
+    <div class="lp" style="left: 44.0vw; top: 22.5vw">
       <div class="l2">Mon<br />Dinner</div></div>
-    <div class="lp" style="left: 15.8vw; top:  5.0vw">
+    <div class="lp" style="left: 15.8vw; top:  9.0vw">
       <div class="l2">Tue<br />Brkfst</div></div>
-    <div class="lp" style="left: 33.2vw; top: 41.0vw">
+    <div class="lp" style="left: 33.2vw; top: 45.0vw">
       <div class="l2">Tue<br />Dinner</div></div>
-    <div class="lp" style="left: 40.1vw; top: 10.5vw">
+    <div class="lp" style="left: 40.1vw; top: 14.5vw">
       <div class="l2">Wed<br />Brkfst</div></div>
-    <div class="lp" style="left:  8.9vw; top: 35.5vw">
+    <div class="lp" style="left:  8.9vw; top: 39.5vw">
       <div class="l2">Wed<br />Dinner</div></div>
-    <div class="lp" style="left: 40.1vw; top: 35.5vw">
+    <div class="lp" style="left: 40.1vw; top: 39.5vw">
       <div class="l2">Thu<br />Brkfst</div></div>
-    <div class="lp" style="left:  8.9vw; top: 10.5vw">
+    <div class="lp" style="left:  8.9vw; top: 14.5vw">
       <div class="l2">Thu<br />Dinner</div></div>
-    <div class="lp" style="left: 15.8vw; top: 41.0vw">
+    <div class="lp" style="left: 15.8vw; top: 45.0vw">
       <div class="l2">Fri<br />Brkfst</div></div>
-    <div class="lp" style="left: 33.2vw; top:  5.0vw">
+    <div class="lp" style="left: 33.2vw; top:  9.0vw">
       <div class="l2">Fri<br />Dinner</div></div>
-    <div class="lp" style="left:  5.0vw; top: 18.5vw">
+    <div class="lp" style="left:  5.0vw; top: 22.5vw">
       <div class="l2">Sat<br />Brkfst</div></div>
-    <div class="lp" style="left: 44.0vw; top: 27.5vw">
+    <div class="lp" style="left: 44.0vw; top: 31.5vw">
       <div class="l2">Sat<br />Dinner</div></div>
-    <button onclick="showSite(1)" style="left:1em">Next</button>
    </div>
   </div>
   <div class="upLabel">&darr; Up &darr;</div>
