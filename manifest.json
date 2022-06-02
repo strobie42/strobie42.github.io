@@ -10,11 +10,11 @@
       "sizes": "192x192",
       "type": "image/png"
     },
+    {
       "src": "Injection192Maskable.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
-    {
     },
     {
       "src": "Injection512.png",
