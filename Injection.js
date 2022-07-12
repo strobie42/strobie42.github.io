@@ -14,7 +14,9 @@ for (let i = 0; i < elements.length; i++) {
  * @param {number} day
  * @param {number} hour
  */
-function segment(day, hour) {
+function segmentNow() {
+  let d = new Date();
+  let day = d.getDay(), hour = d.getHours();
   // hard-coding (for now) these time periods:
   // 10:00pm - 03:59am : night
   // 04:00am - 10:59am : breakfast
@@ -27,8 +29,7 @@ function segment(day, hour) {
   return (day * 4 + 27) % 28;		// previous night
 }
 
-let d = new Date();
-let current = segment(d.getDay(), d.getHours());
+let current = segmentNow();
 
 /**
  * @param {number} curr
@@ -50,3 +51,13 @@ function showSite(inc) {
 }
 
 showSite(0);
+
+document.addEventListener(
+  "visibilitychange", 
+  function(ev) {
+    if (document.visibilityState != "hidden") {
+      showSite(current - segmentNow());
+    }
+  },
+  false
+);
