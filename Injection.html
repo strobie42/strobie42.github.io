@@ -9,11 +9,13 @@
 <link rel="shortcut icon" sizes="192x192" href="Injection192.png">
 <link rel="stylesheet" type="text/css" href="Injection.css"></link>
 </head>
-<body>
+<body class="maxWidth fontSize">
   <div style="display:flex">
    <div>
-    <button onclick="showSite(-1)" style="right:50%">Prev</button>
-    <button onclick="showSite(1)" style="left:50%">Next</button>
+    <button onclick="showSite(-1)" style="right:50%" id="prevButton"
+      class="fontSize">Prev</button>
+    <button onclick="showSite(1)" style="left:50%" id="nextButton"
+      class="fontSize">Next</button>
    </div>
    <div class="dial">
     <img src="compass.svg" class="compass" />

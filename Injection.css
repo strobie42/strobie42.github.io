@@ -1,12 +1,16 @@
-html, body, input, button {
+.maxWidth {
     max-width: 100vw;
+}
+.fontSize {
     font-size: 2.2vw;
-} 
-@media (height < 55vw) {
-    html, body, input, button {
+}
+@media (height < 55vw) {    /* works in Firefox :-) not in Chrome :-( */
+    .maxWidth {
         max-width: 190vh;
+    }
+    .fontSize {
         font-size: 4.2vh;
-    } 
+    }
 }
 html, body {
     /* Lose scroll bars */

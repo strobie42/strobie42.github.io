@@ -57,3 +57,17 @@ document.addEventListener(
   },
   false
 );
+
+if (window.innerHeight < window.innerWidth * 0.55) {
+  // test if the CSS media rule didn't trigger
+  if (document.body.clientWidth == window.innerWidth) {
+    // KLUDGE force the height-constrained styles
+    document.body.style.maxWidth = String(1.9 * window.innerHeight) + "px";
+    let newFontSize = String(0.04 * window.innerHeight) + "px";
+    document.body.style.fontSize = newFontSize;
+    let button = document.getElementById("prevButton");
+    if (button != null) button.style.fontSize = newFontSize;
+    button = document.getElementById("nextButton");
+    if (button != null) button.style.fontSize = newFontSize;
+  }
+}
