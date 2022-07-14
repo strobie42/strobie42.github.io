@@ -10,10 +10,6 @@ for (let i = 0; i < elements.length; i++) {
   sites.push(elements[i]);
 }
 
-/**
- * @param {number} day
- * @param {number} hour
- */
 function segmentNow() {
   let d = new Date();
   let day = d.getDay(), hour = d.getHours();
@@ -56,7 +52,7 @@ document.addEventListener(
   "visibilitychange", 
   function(ev) {
     if (document.visibilityState != "hidden") {
-      showSite(current - segmentNow());
+      showSite(segmentNow() - current);
     }
   },
   false
