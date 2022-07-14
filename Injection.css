@@ -2,10 +2,10 @@ html, body, input, button {
     max-width: 100vw;
     font-size: 2.2vw;
 } 
-@media (height < 50vw) {
+@media (height < 55vw) {
     html, body, input, button {
-        max-width: 200vh;
-        font-size: 4.4vh;
+        max-width: 190vh;
+        font-size: 4.2vh;
     } 
 }
 html, body {
